@@ -1575,7 +1575,7 @@ button {
   background: #ede7df;
   color: var(--neutral-900);
   border-top: 1px solid #ded6cc;
-  padding: 3.5rem 0 3rem;
+  padding: 3.5rem 0 1.25rem;
   transition: background-color 0.2s;
 }
 @media (min-width: 640px) { .footer { padding-top: 5rem; } }
@@ -1703,13 +1703,15 @@ button {
   text-underline-offset: 2px;
 }
 .footer-copyright {
-  padding-top: 24px;
+  padding-top: 16px;
   border-top: 1px solid rgba(222, 214, 204, 0.6);
   display: flex;
   justify-content: flex-end;
   font-size: 12px;
   color: #7a716a;
 }
+.footer-copyright a { color: #7a716a; text-decoration: underline; text-underline-offset: 2px; }
+.footer-copyright a:hover { color: #241b18; }
 
 /* ============ CARTS & MODALS ============ */
 .cart-drawer {
