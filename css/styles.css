@@ -3176,6 +3176,14 @@ button {
     min-height: 420px;
     aspect-ratio: 3/4;
   }
+  .hero-bg-img {
+    width: 100%;
+    height: 95%;
+    object-fit: cover;
+    object-position: 50% 55%;
+    transform: translateY(-135px) scale(2);
+    transition: transform 0.7s ease-out;
+  }
   .hero-glass-card {
     width: 180px;
     height: 260px;
@@ -3196,6 +3204,14 @@ button {
   .hero-bottom-branded { font-size: 12px; }
 
   /* Hero Trending Card */
+  .hero-trending-card-wrap {
+    position: absolute;
+    top: 80px;
+    right: 0.75rem;
+    z-index: 30;
+    transform: none;
+    margin: 0;
+  }
   .hero-trending-card { max-width: 220px; }
   .trending-dark-segment { padding: 20px; }
   .analog-clock { width: 80px; height: 80px; }
@@ -3216,8 +3232,24 @@ button {
 
   /* Product Carousel */
   .product-carousel {
-    grid-auto-columns: 75%;
+    grid-auto-columns: 62%;
     gap: 14px;
+    scroll-padding-inline: 19%;
+  }
+  .product-card {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  /* Category Filters (no scroll on mobile) */
+  .category-filters {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+  .filter-btn {
+    flex: 1 1 auto;
+    justify-content: center;
+    text-align: center;
   }
 
   /* Quick View Modal */
@@ -3275,13 +3307,16 @@ button {
   .hero-title-serif { font-size: 42px; }
   .hero-title-sans { font-size: 10px; letter-spacing: 0.14em; }
   .hero-visual { min-height: 360px; }
+  .hero-bg-img { width: 100%; height: 95%; object-fit: cover; object-position: 50% 55%; transform: translateY(-135px) scale(2); transition: transform 0.7s ease-out; }
+  .hero-trending-card-wrap { top: 80px; }
   .hero-glass-card { width: 150px; height: 220px; }
   .trending-dark-segment { padding: 16px; }
   .analog-clock { width: 64px; height: 64px; }
   .trending-white-segment { padding: 12px; }
   .trending-label { font-size: 12px; }
   .explore-all-btn { padding: 6px 16px; font-size: 10px; }
-  .product-carousel { grid-auto-columns: 80%; }
+  .product-carousel { grid-auto-columns: 64%; scroll-padding-inline: 18%; }
+  .product-card { scroll-snap-align: center; scroll-snap-stop: always; }
   .section-title { font-size: 20px; }
   .categories-title { font-size: 26px; }
   .discover-title { font-size: 26px; }
