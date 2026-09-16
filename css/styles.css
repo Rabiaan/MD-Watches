@@ -3157,3 +3157,134 @@ button {
   line-height: 1.4;
 }
 .footer-contact-info svg { color: var(--neutral-500); flex-shrink: 0; }
+
+/* ============ MOBILE RESPONSIVE (max-width: 639px) ============ */
+@media (max-width: 639px) {
+  /* Hero Title */
+  .hero-title-serif {
+    font-size: 52px;
+    line-height: 0.95;
+  }
+  .hero-title-sans {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    margin-top: 12px;
+  }
+
+  /* Hero Visual */
+  .hero-visual {
+    min-height: 420px;
+    aspect-ratio: 3/4;
+  }
+  .hero-glass-card {
+    width: 180px;
+    height: 260px;
+  }
+  .glass-card-inner {
+    border-radius: 24px;
+    padding: 14px;
+  }
+  .quick-view-btn-hero {
+    font-size: 9px;
+    padding: 5px 12px;
+  }
+  .glass-label p { font-size: 12px; }
+  .hero-bottom-left { bottom: 16px; left: 16px; max-width: 180px; }
+  .hero-bottom-right { bottom: 16px; right: 16px; max-width: 180px; }
+  .hero-bottom-number { font-size: 20px; }
+  .hero-bottom-text { font-size: 10px; }
+  .hero-bottom-branded { font-size: 12px; }
+
+  /* Hero Trending Card */
+  .hero-trending-card { max-width: 220px; }
+  .trending-dark-segment { padding: 20px; }
+  .analog-clock { width: 80px; height: 80px; }
+  .trending-white-segment { padding: 16px; }
+  .trending-label { font-size: 13px; }
+
+  /* Reassurance Bar */
+  .reassurance-grid { gap: 12px; }
+  .reassurance-item { gap: 8px; }
+  .reassurance-icon { width: 28px; height: 28px; }
+  .reassurance-title { font-size: 10px; }
+  .reassurance-sub { font-size: 10px; }
+
+  /* Section spacing */
+  .special-additions-section { padding: 2rem 0.75rem; }
+  .discover-section { padding: 2rem 0.75rem; }
+  .categories-section { padding: 2.5rem 0.75rem; }
+
+  /* Product Carousel */
+  .product-carousel {
+    grid-auto-columns: 75%;
+    gap: 14px;
+  }
+
+  /* Quick View Modal */
+  .modal-overlay { padding: 8px; }
+  .quick-view-modal { border-radius: 20px; }
+  .quick-view-grid { grid-template-columns: 1fr; }
+  .quick-view-img-col { padding: 24px; }
+  .quick-view-img { max-height: 240px; }
+  .quick-view-details { padding: 20px; gap: 16px; }
+  .qv-name { font-size: 20px; }
+  .qv-price { font-size: 20px; }
+  .qv-specs { grid-template-columns: 1fr 1fr; gap: 6px; font-size: 10px; }
+  .qv-action-row { flex-direction: column; }
+  .qv-add-btn, .qv-checkout-btn, .qv-cart-btn { padding: 12px 16px; font-size: 11px; }
+
+  /* Featured Grid */
+  .special-grid { gap: 16px; }
+
+  /* Category Cards */
+  .category-cards-grid { gap: 20px; }
+
+  /* Curation Grid */
+  .curation-grid { gap: 16px; }
+  .curation-step { padding: 16px; }
+  .curation-num { font-size: 28px; }
+
+  /* Concierge Banner */
+  .concierge-banner { padding: 24px 20px; border-radius: 16px; }
+  .concierge-title { font-size: 18px; }
+  .concierge-btn { padding: 10px 20px; font-size: 12px; }
+
+  /* Footer */
+  .footer { padding: 2.5rem 0 1rem; }
+  .footer-main-grid { gap: 32px; padding-bottom: 40px; }
+  .footer-columns { grid-template-columns: 1fr; gap: 24px; }
+
+  /* Cart Drawer */
+  .cart-panel { max-width: 100%; }
+  .cart-header { padding: 16px; }
+  .cart-items { padding: 16px; }
+  .cart-footer { padding: 16px; }
+  .cart-item { gap: 12px; }
+  .cart-item-thumb { width: 64px; height: 64px; }
+
+  /* Header */
+  .header-inner { height: 64px; }
+  .brand-logo { font-size: 1.3rem; }
+
+  /* Loading Screen */
+  .loading-brand { font-size: 18px; letter-spacing: 0.3em; text-indent: 0.3em; }
+}
+
+/* ============ VERY SMALL SCREENS (max-width: 374px) ============ */
+@media (max-width: 374px) {
+  .hero-title-serif { font-size: 42px; }
+  .hero-title-sans { font-size: 10px; letter-spacing: 0.14em; }
+  .hero-visual { min-height: 360px; }
+  .hero-glass-card { width: 150px; height: 220px; }
+  .trending-dark-segment { padding: 16px; }
+  .analog-clock { width: 64px; height: 64px; }
+  .trending-white-segment { padding: 12px; }
+  .trending-label { font-size: 12px; }
+  .explore-all-btn { padding: 6px 16px; font-size: 10px; }
+  .product-carousel { grid-auto-columns: 80%; }
+  .section-title { font-size: 20px; }
+  .categories-title { font-size: 26px; }
+  .discover-title { font-size: 26px; }
+  .concierge-title { font-size: 16px; }
+  .brand-logo { font-size: 1.1rem; }
+}

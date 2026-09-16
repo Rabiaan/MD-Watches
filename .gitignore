@@ -1,0 +1,6 @@
+# Ignore local agent instructions (never push these)
+AGENTS.md
+
+# OS files
+.DS_Store
+Thumbs.db
