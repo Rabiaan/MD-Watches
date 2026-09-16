@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MD Watches — Timeless Style. Modern Precision.</title>
+  <meta name="description" content="MD Watches delivers curated luxury timepieces, pairing modern precision with enduring style. Founded by Danial Saeed & Muneeb Anjum.">
+  <meta property="og:title" content="MD Watches — Timeless Style. Modern Precision.">
+  <meta property="og:description" content="Curated luxury timepieces. Sport, Classic, Skeleton. Free nationwide delivery across Pakistan.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen" role="status" aria-label="Loading MD Watches">
+    <div class="loading-logo">
+      <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Letter M -->
+        <path class="load-stroke load-m" d="M10,125 L10,20 L55,85 L100,20 L100,125" />
+        <!-- Letter D -->
+        <line class="load-stroke load-d-stem" x1="140" y1="20" x2="140" y2="125" />
+        <path class="load-stroke load-d-arc" d="M140,20 A50,50 0 0 1 140,125" />
+        <!-- Watch dial markings -->
+        <g id="load-dial" class="load-ticks"></g>
+        <!-- Rotating minute hand sweeping the D semicircle -->
+        <g>
+          <line class="load-hand" x1="140" y1="70" x2="140" y2="20" />
+          <animateTransform attributeName="transform" type="rotate" from="0 140 70" to="180 140 70" dur="1.2s" begin="1s" fill="freeze" />
+        </g>
+        <circle class="load-pivot" cx="140" cy="70" r="3.5" />
+        <circle class="load-pivot-dot" cx="140" cy="70" r="1.2" />
+      </svg>
+      <div class="load-fill-shell" aria-hidden="true">
+        <div class="load-fill"></div>
+      </div>
+    </div>
+    <p class="loading-brand">MD WATCHES</p>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden">
+    <div class="toast-check">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+    <span id="toast-message"></span>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <a class="brand-logo" href="#">MD <span class="brand-bar">|</span> WATCHES</a>
+      </div>
+      <nav class="desktop-nav">
+        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="#collections">All Watches</a>
+        <a class="nav-link" href="#categories">Sport</a>
+        <a class="nav-link" href="#categories">Classic</a>
+        <a class="nav-link" href="#categories">Skeleton</a>
+        <a class="nav-link" href="#about">About</a>
+      </nav>
+      <div class="header-actions">
+        <a class="whatsapp-header-btn" href="https://wa.me/923262436436" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>03262436436</span>
+        </a>
+        <button class="cart-icon-btn" onclick="toggleCart()" aria-label="Open cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span id="cart-count" class="cart-count-badge hidden">0</span>
+        </button>
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+          <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu hidden">
+      <div class="mobile-nav-links">
+        <button class="mobile-nav-link" onclick="scrollToSection('hero')">Home</button>
+        <button class="mobile-nav-link" onclick="scrollToSection('collections')">All Watches</button>
+        <button class="mobile-nav-link" onclick="setCategory('sport')">Sport & Integrated</button>
+        <button class="mobile-nav-link" onclick="setCategory('classic')">Classic & Dress</button>
+        <button class="mobile-nav-link" onclick="setCategory('skeleton')">Skeleton Art</button>
+        <button class="mobile-nav-link" onclick="scrollToSection('about')">About MD Watches</button>
+      </div>
+      <div class="mobile-menu-footer">
+        <a class="mobile-account-btn" href="https://wa.me/923262436436" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>WhatsApp: 03262436436</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-top">
+        <div class="hero-top-grid">
+          <div class="hero-typography">
+            <h1 class="hero-title">
+              <span class="hero-title-serif"><span class="hero-title-line">TIMELESS</span><span class="hero-title-line">STYLE.</span></span>
+              <span class="hero-title-sans">MODERN PRECISION.</span>
+            </h1>
+          </div>
+          <div class="hero-trending-card-wrap">
+            <div class="hero-trending-card">
+              <div class="trending-dark-segment">
+                <div class="analog-clock">
+                  <svg viewBox="0 0 100 100" id="hero-clock"></svg>
+                </div>
+              </div>
+              <div class="trending-white-segment">
+                <div class="trending-labels">
+                  <h3 class="trending-label">TIMELESS</h3>
+                  <h3 class="trending-label">STYLE</h3>
+                  <h3 class="trending-label">COLLECTION</h3>
+                </div>
+                <button class="explore-all-btn" onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">
+                  <span>Explore All</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Main Visual -->
+      <div class="hero-visual">
+        <img src="images/watch_hero_man_1789464000597.jpg" alt="MD Watches Luxury Timepiece on Wrist" class="hero-bg-img">
+        <div class="hero-overlay-gradient"></div>
+        <div class="hero-overlay-radial"></div>
+
+        <!-- Glass Viewfinder Card -->
+        <div class="hero-glass-card">
+          <div class="glass-card-inner">
+            <div class="glass-crosshair">
+              <div class="crosshair-line"></div>
+              <div class="crosshair-diamond"></div>
+              <div class="crosshair-line"></div>
+            </div>
+            <div class="glass-focus-zone" onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">
+              <button class="quick-view-btn-hero" onclick="event.stopPropagation();document.getElementById('collections').scrollIntoView({behavior:'smooth'})">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span>View Collection</span>
+              </button>
+            </div>
+            <div class="glass-bottom-section">
+              <div class="glass-hairline">
+                <div class="hairline-line"></div>
+                <span class="hairline-plus">+</span>
+                <div class="hairline-line"></div>
+              </div>
+              <div class="glass-label">
+                <p>Curated</p>
+                <p>Luxury</p>
+                <p>Timepieces</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom-Left Info -->
+        <div class="hero-bottom-left">
+          <p class="hero-bottom-number">MD</p>
+          <p class="hero-bottom-text">Timeless Style. Modern Precision.</p>
+        </div>
+
+        <!-- Bottom-Right Info -->
+        <div class="hero-bottom-right">
+          <p class="hero-bottom-branded">Complimentary Delivery</p>
+          <p class="hero-bottom-text">Free nationwide shipping across Pakistan on every timepiece.</p>
+        </div>
+      </div>
+
+      <!-- Reassurance Bar -->
+      <div class="reassurance-bar reveal">
+        <div class="reassurance-grid">
+          <div class="reassurance-item">
+            <div class="reassurance-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <div>
+              <p class="reassurance-title">316L Solid Steel</p>
+              <p class="reassurance-sub">Cases & Bracelets</p>
+            </div>
+          </div>
+          <div class="reassurance-item">
+            <div class="reassurance-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+            </div>
+            <div>
+              <p class="reassurance-title">Hand-Inspected</p>
+              <p class="reassurance-sub">Quality Guaranteed</p>
+            </div>
+          </div>
+          <div class="reassurance-item">
+            <div class="reassurance-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            </div>
+            <div>
+              <p class="reassurance-title">Nationwide Delivery</p>
+              <p class="reassurance-sub">Complimentary & Insured</p>
+            </div>
+          </div>
+          <div class="reassurance-item">
+            <div class="reassurance-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div>
+              <p class="reassurance-title">WhatsApp Order</p>
+              <p class="reassurance-sub">Direct Concierge</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Timepieces Section -->
+    <section id="featured" class="special-additions-section">
+      <div class="section-header reveal">
+        <h2 class="section-title">
+          <span class="font-serif">FEATURED </span>
+          <span class="font-sans-bold">TIMEPIECES</span>
+        </h2>
+        <button class="view-all-link" onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">View All</button>
+      </div>
+      <div class="special-grid" id="featured-grid"></div>
+    </section>
+
+    <!-- About MD Watches Section -->
+    <section id="about" class="discover-section">
+      <div class="discover-grid">
+        <div class="discover-col1 reveal">
+          <h2 class="discover-title">
+            <span class="discover-title-serif">THE MD WATCHES</span>
+            <span class="discover-title-sans">PHILOSOPHY</span>
+          </h2>
+          <p style="font-size:14px;color:var(--neutral-700);margin-top:12px;font-weight:600;letter-spacing:0.04em;">TIMELESS STYLE. MODERN PRECISION.</p>
+          <div class="discover-img-wrap">
+            <div class="discover-img-clip">
+              <img src="images/man_burgundy_watch_1789479407743.jpg" alt="MD Watches Timepiece" class="discover-img">
+            </div>
+          </div>
+        </div>
+        <div class="discover-col2 reveal reveal-delay-1">
+          <p class="discover-story-text">At MD Watches, founded and operated by Danial Saeed & Muneeb Anjum, we believe a timepiece is much more than a device for telling time. It is a defining statement of discipline, refined taste, and personal presentation.</p>
+          <p class="discover-story-text" style="font-size:14px;font-weight:400;color:var(--neutral-600);margin-top:12px;">Based at Nawabpur Road, Nawab City, Punjab, our studio curates an exceptional range of sport timepieces, classic dress watches, and skeleton mechanical calibres. Each model in our catalog is hand-inspected for bezel alignment, dial finish, hand positioning, and bracelet fluidity before being securely packaged and dispatched across Pakistan.</p>
+          <div class="discover-bottom">
+            <div class="discover-divider"></div>
+            <div class="discover-brand-row">
+              <p class="discover-brand-text">Sport, Classic & Skeleton collections. Hand-inspected. Free nationwide delivery.</p>
+              <a class="discover-explore-btn" href="https://wa.me/923262436436" target="_blank" rel="noopener">
+                <span>Chat on WhatsApp</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="discover-col3 reveal reveal-delay-2">
+          <div class="discover-img-wrap tall">
+            <div class="discover-img-clip">
+              <img src="images/man_grey_suit_watch_1789479423037.jpg" alt="MD Watches Editorial" class="discover-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curated Categories Section -->
+    <section id="categories" class="special-additions-section">
+      <div class="section-header reveal">
+        <h2 class="section-title">
+          <span class="font-serif">CURATED </span>
+          <span class="font-sans-bold">CATEGORIES</span>
+        </h2>
+      </div>
+      <p class="reveal reveal-delay-1" style="font-size:14px;color:var(--neutral-600);margin-bottom:2rem;max-width:36rem;line-height:1.6;">From architectural integrated sport bracelets to intricate exposed mechanical skeleton calibres.</p>
+      <div class="category-cards-grid" id="category-cards-grid"></div>
+    </section>
+
+    <!-- Product Categories Section -->
+    <section id="collections" class="categories-section">
+      <div class="categories-header">
+        <div>
+          <h2 class="categories-title">
+            <span class="categories-title-serif">Curated Luxury</span>
+            <span class="categories-title-sans">Timepieces</span>
+          </h2>
+        </div>
+        <p class="categories-subtitle">Discover watches designed to complement every moment, from everyday essentials to refined statement pieces. Curated with an obsession for detail.</p>
+      </div>
+      <div class="category-filters" id="category-filters"></div>
+      <div class="product-carousel" id="product-carousel"></div>
+      <div class="carousel-nav">
+        <button class="carousel-nav-btn" onclick="scrollCarousel(-1)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="carousel-nav-btn" onclick="scrollCarousel(1)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Curation Process Section -->
+    <section class="special-additions-section">
+      <div class="section-header reveal">
+        <h2 class="section-title">
+          <span class="font-serif">THE CURATION </span>
+          <span class="font-sans-bold">PROCESS</span>
+        </h2>
+      </div>
+      <p class="reveal reveal-delay-1" style="font-size:14px;color:var(--neutral-600);margin-bottom:2rem;max-width:36rem;line-height:1.6;">Every timepiece undergoes meticulous multi-point inspection before it reaches your collection.</p>
+      <div class="curation-grid" id="curation-grid"></div>
+    </section>
+
+    <!-- Direct Concierge Section -->
+    <section class="special-additions-section" style="padding-top:1rem;">
+      <div class="concierge-banner reveal">
+        <div class="concierge-inner">
+          <div class="concierge-left">
+            <h2 class="concierge-title">Custom Inquiries &amp; Order Assistance</h2>
+            <p class="concierge-desc">Have questions regarding watch dimensions, dial colors, or bank transfer payments? Reach out directly via WhatsApp or phone.</p>
+          </div>
+          <a class="concierge-btn" href="https://wa.me/923262436436" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span>Chat on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="footer-inner">
+      <div class="footer-main-grid">
+        <div class="footer-newsletter">
+          <a class="brand-logo footer-brand" href="#">MD <span class="brand-bar">|</span> WATCHES</a>
+          <p class="footer-newsletter-desc" style="margin-top:16px;max-width:22rem;">MD Watches delivers curated luxury timepieces, pairing modern precision with enduring style. Founded by Danial Saeed & Muneeb Anjum.</p>
+          <div class="footer-contact-info">
+            <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Nawabpur Road, Nawab City, Punjab 60000</p>
+            <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> 03262436436 / 03184589091</p>
+            <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> muneebanjum9091@gmail.com</p>
+            <p><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> www.mdwatches.com</p>
+          </div>
+        </div>
+        <div class="footer-columns">
+          <div class="footer-col">
+            <h4 class="footer-col-title">EXPLORE</h4>
+            <ul class="footer-col-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#collections">All Watches</a></li>
+              <li><a href="#categories">Sport & Integrated</a></li>
+              <li><a href="#categories">Classic & Dress</a></li>
+              <li><a href="#categories">Mechanical Skeleton</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">COLLECTIONS</h4>
+            <ul class="footer-col-links">
+              <li><a href="#">Sport & Integrated Bracelet</a></li>
+              <li><a href="#">Classic & Dress Watches</a></li>
+              <li><a href="#">Skeleton & Open-Heart Art</a></li>
+              <li><a href="#">Curated Executive Gift Sets</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">CUSTOMER CARE</h4>
+            <ul class="footer-col-links">
+              <li style="font-size:12px;color:#615953;line-height:1.6;margin-bottom:10px;">Have questions about watch specifications, custom strap fitting, or direct bank transfer payments? Reach out directly:</li>
+              <li><a href="https://wa.me/923262436436" target="_blank" rel="noopener">Chat: 03262436436</a></li>
+              <li><a href="tel:03184589091">Call: 03184589091</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>Founders: Danial Saeed &bull; Muneeb Anjum &nbsp;&bull;&nbsp; &copy; 2026 MD Watches (www.mdwatches.com). Timeless Style. Modern Precision. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick View Modal -->
+  <div id="quick-view-modal" class="modal-overlay hidden">
+    <div class="quick-view-modal">
+      <button class="modal-close-btn" onclick="closeQuickView()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="quick-view-grid">
+        <div class="quick-view-img-col">
+          <img id="qv-image" src="" alt="" class="quick-view-img">
+          <div class="quick-view-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>Hand-Inspected Quality</span>
+          </div>
+        </div>
+        <div class="quick-view-details">
+          <div>
+            <div class="qv-category-row">
+              <span id="qv-category" class="qv-category"></span>
+              <span id="qv-trending" class="qv-trending hidden">Trending</span>
+            </div>
+            <h2 id="qv-name" class="qv-name"></h2>
+            <p id="qv-tagline" class="qv-tagline"></p>
+            <div class="qv-price-row">
+              <span id="qv-price" class="qv-price"></span>
+              <span id="qv-original-price" class="qv-original-price hidden"></span>
+              <span class="qv-stock">Nationwide Delivery</span>
+            </div>
+            <p id="qv-description" class="qv-description"></p>
+            <div class="qv-specs">
+              <div>
+                <span class="qv-spec-label">Diameter</span>
+                <span id="qv-diameter" class="qv-spec-value"></span>
+              </div>
+              <div>
+                <span class="qv-spec-label">Movement</span>
+                <span id="qv-movement" class="qv-spec-value"></span>
+              </div>
+              <div>
+                <span class="qv-spec-label">Case</span>
+                <span id="qv-case" class="qv-spec-value"></span>
+              </div>
+              <div>
+                <span class="qv-spec-label">Water Proof</span>
+                <span id="qv-water" class="qv-spec-value"></span>
+              </div>
+            </div>
+          </div>
+          <div class="qv-actions">
+            <div class="qv-action-row">
+              <button id="qv-cart-btn" class="qv-cart-btn" onclick="addFromModal('cart')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Add to Cart</span>
+              </button>
+              <button id="qv-add-btn" class="qv-add-btn whatsapp-cta" onclick="addFromModal('whatsapp')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span>Order on WhatsApp</span>
+              </button>
+            </div>
+            <a class="qv-checkout-btn" href="https://wa.me/923262436436" target="_blank" rel="noopener" onclick="closeQuickView()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>Call: 03184589091</span>
+            </a>
+            <div class="qv-trust">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+              <span>Hand-Inspected &amp; Free Nationwide Delivery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer" class="cart-drawer" aria-label="Shopping cart">
+    <div class="cart-backdrop" onclick="toggleCart()"></div>
+    <div class="cart-panel">
+      <div class="cart-header">
+        <div class="cart-header-left">
+          <h3 class="cart-title">Your Cart</h3>
+          <span id="cart-badge-count" class="cart-badge-count hidden">0</span>
+        </div>
+        <button class="cart-close-btn" onclick="toggleCart()" aria-label="Close cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="cart-shipping-bar">
+        <span class="cart-shipping-left">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+          <span>Free Nationwide Delivery</span>
+        </span>
+        <span class="cart-shipping-free">Insured</span>
+      </div>
+      <div class="cart-items">
+        <div id="cart-empty" class="cart-empty">
+          <div class="cart-empty-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          </div>
+          <p class="cart-empty-title">Your cart is empty</p>
+          <p class="cart-empty-text">Explore our curated timepieces and add your favorites. Ordering is one WhatsApp message away.</p>
+          <button class="cart-empty-btn" onclick="cartBrowse()">Browse Watches</button>
+        </div>
+        <div id="cart-items-list"></div>
+      </div>
+      <div id="cart-footer" class="cart-footer hidden">
+        <div class="cart-summary">
+          <div class="cart-summary-row"><span class="label">Items</span><span id="cart-total-items">0</span></div>
+          <div class="cart-summary-row green"><span class="label">Delivery</span><span class="value">Free Nationwide</span></div>
+        </div>
+        <button class="secure-checkout-btn" onclick="cartCheckout()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>Order via WhatsApp</span>
+          <svg class="arrow-ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:auto;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+        <button class="cart-clear-btn" onclick="clearCart()">Clear Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
