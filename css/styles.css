@@ -200,6 +200,49 @@ button {
 @media (min-width: 640px) { .whatsapp-header-btn { display: flex; } }
 .whatsapp-header-btn:hover { background: #1da851; }
 .whatsapp-header-btn svg { color: #fff; }
+.header-search {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid #d8cfc3;
+  border-radius: 9999px;
+  padding: 7px 14px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+  color: var(--neutral-500);
+}
+@media (min-width: 640px) { .header-search { display: flex; } }
+.header-search:focus-within {
+  border-color: var(--neutral-900);
+  box-shadow: 0 0 0 1px rgba(36, 27, 24, 0.3);
+}
+.header-search input {
+  flex: 1;
+  min-width: 0;
+  width: 120px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  color: var(--neutral-900);
+}
+@media (min-width: 1024px) { .header-search input { width: 160px; } }
+.header-search input::placeholder { color: #9c948b; }
+.header-search-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: var(--neutral-500);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+.header-search-clear:hover { color: var(--neutral-900); }
 .header-actions {
   display: flex;
   align-items: center;
